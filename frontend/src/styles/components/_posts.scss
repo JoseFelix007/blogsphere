@@ -1,0 +1,41 @@
+.post {
+  max-width: 50%;
+  margin: 0 auto;
+  font-family: sans-serif;
+
+  &-header {
+    margin-bottom: 2rem;
+  }
+
+  &-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  &-info {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+
+    &__sep {
+      display: inline-block;
+      background-color: #777;
+      border-radius: 50%;
+      height: 0.125rem;
+      width: 0.125rem;
+      margin: 0 0.5rem;
+    }
+  }
+
+  &-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &-section {
+    margin-bottom: 2rem;
+  }
+}

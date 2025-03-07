@@ -1,0 +1,63 @@
+@use '../theme';
+
+.base-dropdown--activator {
+  position: relative;
+}
+
+.base-dropdown-menu {
+  border-radius: 0.5rem;
+  @include theme.scheme() {
+    box-shadow: 0px 0px 4px 0px rgb(theme.get('text'), 15%);
+  }
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(-1rem);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 200ms linear;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  min-width: 8rem;
+  z-index: 10;
+  @include theme.scheme() {
+    color: theme.get('text');
+    background: theme.get('gray');
+  }
+
+  &.active {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+      @include theme.scheme() {
+        background: rgba(theme.get('primary'), 0.1);
+      }
+    }
+
+    & svg {
+      vertical-align: middle;
+    }
+
+    &.disabled {
+      background: transparent;
+      cursor: not-allowed;
+
+      @include theme.scheme() {
+        color: rgba(theme.get('primary'), 0.3);
+      }
+    }
+  }
+}

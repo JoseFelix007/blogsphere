@@ -1,0 +1,124 @@
+@use '../theme';
+
+.form-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 0.5rem;
+  padding: 3rem;
+  width: 30%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+
+  @include theme.scheme() {
+    border: 0.1rem solid rgba(theme.get('gray'), 0.75);
+    color: theme.get('text');
+    background: theme.get('background');
+  }
+
+  & h3 {
+    @include theme.scheme() {
+      color: theme.get('text');
+    }
+  }
+
+  & form {
+    box-sizing: border-box;
+
+    & .form-control {
+      height: 3.5rem;
+      position: relative;
+      margin-bottom: 1rem;
+
+      & input {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        border: none;
+        outline: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        padding: 0 1rem;
+
+        @include theme.scheme() {
+          background: theme.get('gray');
+          color: theme.get('text');
+        }
+
+        &:is(:focus, :valid) {
+          padding: 1rem 1rem 0;
+
+          @include theme.scheme() {
+            background: theme.get('gray');
+          }
+
+          & ~ label {
+            font-size: 0.75rem;
+            transform: translateY(-130%);
+          }
+        }
+      }
+
+      & label {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        pointer-events: none;
+        transition: all 0.1s ease;
+
+        @include theme.scheme() {
+          color: rgba(theme.get('primary'), 50%);
+        }
+      }
+    }
+
+    & button {
+      width: 100%;
+      padding: 1rem 0;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      border: none;
+      outline: none;
+      margin: 1.5rem 0;
+      cursor: pointer;
+      transition: 0.1s ease;
+
+      @include theme.scheme() {
+        background: theme.get('primary');
+        color: theme.get('background');
+      }
+
+      &:hover {
+        @include theme.scheme() {
+          background: rgba(theme.get('primary'), 80%);
+        }
+      }
+    }
+  }
+
+  & a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  & :where(label, p, small, a) {
+    @include theme.scheme() {
+      color: rgba(theme.get('secondary'), 70%);
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .form-wrapper {
+    padding: 1.5rem;
+  }
+  .form-wrapper {
+    width: 95%;
+    top: 43%;
+  }
+}

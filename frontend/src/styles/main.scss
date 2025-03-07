@@ -1,0 +1,53 @@
+@use 'theme';
+@use 'typography';
+
+@use 'components/auth';
+@use 'components/loader';
+@use 'components/navbar';
+@use 'components/dropdown';
+@use 'components/posts_card';
+@use 'components/posts';
+@use 'components/editor';
+
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  @include theme.scheme() {
+    background: theme.get('background');
+    color: theme.get('text');
+  }
+}
+
+.view {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.scrollable {
+  overflow-y: scroll;
+}
+
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
+  width: 0.9rem;
+  border-radius: 1rem;
+  background-clip: padding-box;
+  border: 0.3rem solid transparent;
+
+  @include theme.scheme() {
+    color: theme.get('text');
+  }
+}
+
+*::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 0 10px;
+}

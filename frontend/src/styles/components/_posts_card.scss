@@ -1,0 +1,121 @@
+@use '../theme';
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  margin: 1rem 10%;
+}
+
+.post-card {
+  width: 30%;
+  margin: 1%;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+  position: relative;
+  transition: background 0.3s ease;
+  cursor: pointer;
+
+  @include theme.scheme() {
+    color: theme.get('text');
+    background: rgba(theme.get('primary'), 5%);
+  }
+
+  &:hover {
+    @include theme.scheme() {
+      background: rgba(theme.get('primary'), 25%);
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    .post-card__image {
+      width: 100px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.333rem;
+  }
+
+  &__title,
+  &__summary {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__info {
+    font-size: 0.9rem;
+    color: #777;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &__sep {
+      display: inline-block;
+      background-color: #777;
+      border-radius: 50%;
+      height: 0.125rem;
+      width: 0.125rem;
+      margin: 0 0.5rem;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    gap: 0.5rem;
+  }
+  &__tag {
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.75rem;
+    font-size: 0.75rem;
+
+    &.primary {
+      @include theme.scheme() {
+        background: theme.get('primary');
+        color: theme.get('background');
+      }
+    }
+
+    &.gray {
+      @include theme.scheme() {
+        background: theme.get('gray');
+        color: theme.get('text');
+      }
+    }
+  }
+
+  &__corner {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  &__edit {
+    outline: none;
+    color: inherit;
+    white-space: nowrap;
+    background: transparent;
+    padding: 0.2rem 1rem;
+    transition: background 0.3s ease;
+    border-radius: 0.2rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+
+    @include theme.scheme() {
+      border: 0.1rem solid theme.get('gray');
+    }
+
+    &:hover {
+      @include theme.scheme() {
+        background: theme.get('gray');
+      }
+      transition: background 0.3s ease;
+    }
+  }
+}
